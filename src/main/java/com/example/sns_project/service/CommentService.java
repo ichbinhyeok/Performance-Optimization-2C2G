@@ -11,6 +11,7 @@ import com.example.sns_project.model.CommentLike;
 import com.example.sns_project.model.Post;
 import com.example.sns_project.model.User;
 import com.example.sns_project.projection.CommentHierarchyProjection;
+import com.example.sns_project.repository.CommentLikeRepository;
 import com.example.sns_project.repository.CommentRepository;
 import com.example.sns_project.repository.PostRepository;
 import com.example.sns_project.repository.UserRepository;
@@ -36,6 +37,7 @@ public class CommentService {
     private final UserRepository userRepository;
     private final UserService userService;
     private final NotificationService notificationService;
+    private final CommentLikeRepository commentLikeRepository;
 
     @Transactional
     public CommentDTO createComment(Long parentCommentId, CommentDTO commentDTO) {
@@ -201,20 +203,10 @@ public class CommentService {
 
     @Transactional
     public void unlikeComment(Long commentId, Long userId) {
-        Comment comment = commentRepository.findById(commentId)
-                .orElseThrow(() -> new ResourceNotFoundException("Comment not found"));
-
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-
-        CommentLike commentLike = comment.getLikes().stream()
-                .filter(like -> like.getUser().getId().equals(userId))
-                .findFirst()
+        CommentLike commentLike = commentLikeRepository.findByCommentIdAndUserId(commentId, userId)
                 .orElseThrow(() -> new IllegalArgumentException("User has not liked this comment"));
 
-        comment.getLikes().remove(commentLike);
-        user.getLikedComments().remove(commentLike);
-        commentRepository.save(comment);
+        commentLikeRepository.delete(commentLike);
     }
 
 

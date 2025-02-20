@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -35,21 +37,21 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles = new HashSet<>(); // 초기화
+    private List<Role> roles = new ArrayList<>(); // 초기화
 
     // 사용자가 좋아요를 누른 게시글 목록
     @OneToMany(mappedBy = "user", orphanRemoval = true) //1205cascade = CascadeType.ALL삭제
-    private Set<PostLike> likedPosts = new HashSet<>(); // 좋아요 목록
+    private List<PostLike> likedPosts = new ArrayList<>(); // 좋아요 목록
 
     // 사용자가 좋아요를 누른 댓글 목록
     @OneToMany(mappedBy = "user", orphanRemoval = true)//1205 cascade = CascadeType.ALL 삭제
-    private Set<CommentLike> likedComments = new HashSet<>(); // 댓글 좋아요 목록
+    private List<CommentLike> likedComments = new ArrayList<>(); // 댓글 좋아요 목록
 
     // 사용자가 작성한 댓글 목록
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Comment> comments = new HashSet<>();
+    private List<Comment> comments = new ArrayList<>();
 
     // 사용자가 작성한 게시글 목록
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Post> posts = new HashSet<>();
+    private List<Post> posts = new ArrayList<>();
 }

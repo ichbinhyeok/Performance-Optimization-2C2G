@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -31,14 +33,14 @@ public class Comment extends BaseEntity {
     private User user;
 
     @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Comment> childrenComments = new HashSet<>();
+    private List<Comment> childrenComments = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "parent_comment_id")
     private Comment parentComment;
 
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<CommentLike> likes = new HashSet<>();
+    private List<CommentLike> likes = new ArrayList<>();
 
     @Column(nullable = false)
     private int depth = 0;

@@ -167,7 +167,9 @@ public class PostService {
                 post.getContent(),
                 new UserDTO(user.getId(), user.getUsername(), user.getEmail()),
                 post.getLikes().stream()
-                        .map(postLike -> postLike.getUser().getId()).collect(Collectors.toSet())
+                        .map(postLike -> postLike.getUser().getId())
+                        .collect(Collectors.toList())  // Set -> List로 변경
+
         );
     }
 

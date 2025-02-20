@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -34,11 +36,11 @@ public class Post extends BaseEntity{
 
     //게시글에 대한 좋아요 리스트
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,orphanRemoval = true)//TODO mappedBy 공부하기
-    private Set<PostLike> likes = new HashSet<>();
+    private List<PostLike> likes = new ArrayList<>();
 
     //게시글에 대한 댓글 리스트
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Comment> comments = new HashSet<>();
+    private List<Comment> comments = new ArrayList<>();
 
     // Getter 및 Setter 메서드
 

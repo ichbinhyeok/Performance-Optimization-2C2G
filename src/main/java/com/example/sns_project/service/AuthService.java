@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -80,8 +81,8 @@ public class AuthService {
         Role userRole = roleRepository.findByName("ROLE_USER")
                 .orElseThrow(() -> new RuntimeException("기본 역할이 존재하지 않습니다."));
 
-        // Set<Role>으로 설정
-        user.setRoles(Collections.singleton(userRole));
+        // List<Role>으로 설정
+        user.setRoles(new ArrayList<>(List.of(userRole)));
 
         // 사용자 저장
         userRepository.save(user);

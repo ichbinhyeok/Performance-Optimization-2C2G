@@ -4,6 +4,7 @@ package com.example.sns_project.repository;
 // 댓글 데이터 접근을 위한 JPA 레포지토리
 import com.example.sns_project.dto.CommentHierarchyDTO;
 import com.example.sns_project.model.Comment;
+import com.example.sns_project.model.CommentLike;
 import com.example.sns_project.projection.CommentHierarchyProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +13,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
@@ -78,6 +80,8 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
             @Param("commentId") Long commentId,
             @Param("userId") Long userId
     );
+
+
 
 
     @Query(value = """
