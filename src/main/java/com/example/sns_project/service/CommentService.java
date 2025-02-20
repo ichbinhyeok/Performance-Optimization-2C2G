@@ -103,42 +103,6 @@ public class CommentService {
         return commentRepository.findRootCommentsDto(postId, pageable);
     }
 
-    // getChildComment 수정 전 0206
-    // 특정 댓글의 모든 자식 댓글 조회 (페이징 없음)
-
-//    @Transactional(readOnly = true)
-//    public List<CommentHierarchyDTO> getAllChildComments(Long parentCommentId) {
-//        // 한 번의 쿼리로 모든 계층 구조를 조회
-//        List<Comment> allComments = commentRepository.findAllChildrenHierarchy(parentCommentId);
-//
-//        // 메모리에서 계층 구조 구성
-//        Map<Long, CommentHierarchyDTO> dtoMap = new HashMap<>();
-//        List<CommentHierarchyDTO> firstLevelComments = new ArrayList<>();
-//
-//        // 1단계: 모든 댓글을 DTO로 변환
-//        allComments.forEach(comment -> {
-//            CommentHierarchyDTO dto = convertToHierarchyDTO(comment);
-//            dtoMap.put(comment.getId(), dto);
-//
-//            if (comment.getParentComment().getId().equals(parentCommentId)) {
-//                firstLevelComments.add(dto);
-//            }
-//        });
-//
-//        // 2단계: 계층 구조 구성
-//        allComments.forEach(comment -> {
-//            if (!comment.getParentComment().getId().equals(parentCommentId)) {
-//                CommentHierarchyDTO parentDto = dtoMap.get(comment.getParentComment().getId());
-//                if (parentDto.getReplies() == null) {
-//                    parentDto.setReplies(new ArrayList<>());
-//                }
-//                parentDto.getReplies().add(dtoMap.get(comment.getId()));
-//            }
-//        });
-//
-//        return firstLevelComments;
-//    }
-
     @Transactional(readOnly = true)
     public List<CommentHierarchyProjection> getAllChildComments(Long parentCommentId) {
         // DB에서 계층 구조를 가져옴

@@ -117,15 +117,12 @@
 <details>
 <summary>📌 트러블 슈팅</summary>
 
-[📌 Comment 조회 성능 이슈 및 최적화.md](results%2FTroubleshooting%2FComment%20%C1%B6%C8%B8%20%BC%BA%B4%C9%20%C0%CC%BD%B4%20%B9%D7%20%C3%D6%C0%FB%C8%AD.md)
+[📌 1. WITH RECURSIVE를 이용한 재귀쿼리.md](..%2FTroubleshooting%2FWITH%20RECURSIVE%B8%A6%20%C0%CC%BF%EB%C7%D1%20%C0%E7%B1%CD%C4%F5%B8%AE.md)
 
-[📌 Comment 조회 성능 이슈 및 최적화.md](results%2FTroubleshooting%2FComment%20%C1%B6%C8%B8%20%BC%BA%B4%C9%20%C0%CC%BD%B4%20%B9%D7%20%C3%D6%C0%FB%C8%AD.md)
+[📌 2. SET,JPA, ExtractHashCode 이해하기.md](..%2FTroubleshooting%2FextractHashCode.md)
 
-[📌 Comment 조회 성능 이슈 및 최적화.md](results%2FTroubleshooting%2FComment%20%C1%B6%C8%B8%20%BC%BA%B4%C9%20%C0%CC%BD%B4%20%B9%D7%20%C3%D6%C0%FB%C8%AD.md)
+[📌 3. GetTurboFilterChainDecision.md](..%2FTroubleshooting%2F.getTurboFilterChainDecision.md)
 
-[📌 Comment 조회 성능 이슈 및 최적화.md](results%2FTroubleshooting%2FComment%20%C1%B6%C8%B8%20%BC%BA%B4%C9%20%C0%CC%BD%B4%20%B9%D7%20%C3%D6%C0%FB%C8%AD.md)
-
-[📌 Comment 조회 성능 이슈 및 최적화.md](results%2FTroubleshooting%2FComment%20%C1%B6%C8%B8%20%BC%BA%B4%C9%20%C0%CC%BD%B4%20%B9%D7%20%C3%D6%C0%FB%C8%AD.md)
 
 </details>
 
@@ -199,7 +196,7 @@
 <details>
 <summary>📌 1차: 초기 상태</summary>
 
-- [📊 1차 테스트 결과](results/phase1/phase1-result.md)
+- [📊 1차 테스트 결과](../phase1/phase1-result.md)
 
 **📌 분석한 문제점**
 - 인기 게시글 조회 시 DB 부하 심각
@@ -211,7 +208,7 @@
 <details>
 <summary>📌 2차: Redis 캐싱 도입</summary>
 
-- [📊 2차 테스트 결과](results/phase2/phase2-result.md)
+- [📊 2차 테스트 결과](../phase2/phase2-result.md)
 
 **주요 개선 사항**
 - 인기 게시글 조회 쿼리를 Redis 캐시로 대체
@@ -227,7 +224,7 @@
 <details>
 <summary>📌 3차: 댓글 로직 최적화</summary>
 
-- [📊 3차 테스트 결과](results/phase3/phase3-result.md)
+- [📊 3차 테스트 결과](../phase3/phase3-result.md)
 
 **주요 개선 사항**
 - fetch join, 배치 사이즈 설정으로 N+1 문제 해결
@@ -243,7 +240,7 @@
 <details>
 <summary>📌 4차: 로그 레벨 및 엔티티 최적화</summary>
 
-- [📊 4차 테스트 결과](results/phase4/phase4-result.md)
+- [📊 4차 테스트 결과](../phase4/phase4-result.md)
 
 **주요 개선 사항**
 - 로그 레벨 DEBUG → INFO 조정
@@ -258,7 +255,7 @@
 <details>
 <summary>📌 5차: 커넥션 풀 및 엔티티 관계 최적화</summary>
 
-- [📊 5차 테스트 결과](results/phase5/phase5-result.md)
+- [📊 5차 테스트 결과](../phase5/phase5-result.md)
 
 **주요 개선 사항**
 - HikariCP 커넥션 풀 최적화
@@ -273,7 +270,7 @@
 <details>
 <summary>📌 6차: 시스템 설정 최적화</summary>
 
-- [📊 6차 테스트 결과](results/phase6/phase6-result.md)
+- [📊 6차 테스트 결과](../phase6/phase6-result.md)
 
 **주요 개선 사항**
 - 톰캣 쓰레드 수 조정 (200 → 100)
@@ -288,7 +285,7 @@
 <details>
 <summary>📌 7차: 로그인 아키텍처 개선</summary>
 
-- [📊 7차 테스트 결과](results/phase7/phase7-result.md)
+- [📊 7차 테스트 결과](../phase7/phase7-result.md)
 
 **주요 개선 사항**
 - 로그인 전용 커넥터 및 쓰레드 풀 도입
@@ -304,7 +301,7 @@
 <details>
 <summary>📌 8차: JSON 처리 및 쓰레드 풀 최적화</summary>
 
-- [📊 8차 테스트 결과](results/phase8/phase8-result.md)
+- [📊 8차 테스트 결과](../phase8/phase8-result.md)
 
 **주요 개선 사항**
 - API 응답용/캐시용 DTO 분리

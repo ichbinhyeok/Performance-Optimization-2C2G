@@ -78,20 +78,20 @@ management:
 
 logging:
   level:
-    root: ERROR  # 전체 로그 레벨 ERROR로 변경
+    root: INFO  # 전체 로그 레벨 ERROR로 변경
 
     # 특정 패키지 로그 레벨 조정
-    com.example.sns_project: ERROR  # 프로젝트 전체 로그
-    com.example.sns_project.controller: ERROR  # 컨트롤러 로그
-    com.example.sns_project.service: ERROR  # 서비스 로직 로그
+    com.example.sns_project: INFO  # 프로젝트 전체 로그
+    com.example.sns_project.controller: INFO  # 컨트롤러 로그
+    com.example.sns_project.service: INFO  # 서비스 로직 로그
 
     # 데이터베이스 관련 로그
-    org.hibernate.SQL: ERROR  # SQL 쿼리 로그
-    org.hibernate.type.descriptor.sql: ERROR  # SQL 파라미터 값 로그
+    org.hibernate.SQL: INFO  # SQL 쿼리 로그
+    org.hibernate.type.descriptor.sql: INFO  # SQL 파라미터 값 로그
 
     # 스프링 관련 로그
-    org.springframework.web: ERROR
-    org.springframework.core: ERROR
+    org.springframework.web: INFO
+    org.springframework.core: INFO
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 springdoc:
