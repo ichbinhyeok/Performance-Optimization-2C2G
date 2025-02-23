@@ -46,9 +46,8 @@
 ## 💡 최적화 성과
 
 > #### 9차에 걸친 단계별 최적화를 통해 전체 API 응답시간을 98.2% 이상 개선하고, 에러율을 0%로 낮추는데 성공했습니다.
-![img03.png](img03.png)
-<img src="그래프.png" width="800" alt="성능 개선 그래프"/>
-
+<img alt="img03.png" src="results/ReadMe/img03.png" width="800"/>
+<img src="results/ReadMe/그래프.png" width="800" alt="성능 개선 그래프"/>
 ## 📊 API별 성능 개선 결과 상세보기</summary>
 
 | API | 최적화 전 |  | 최적화 후 |  | 개선율(%) |  |
@@ -105,15 +104,15 @@
 > #### 성능 개선 과정에서 마주친 다양한 문제들과 이를 해결하기 위해 진행한 기술 검증들을 정리했습니다.
 
 
-#### [📌 1. JPA Set 컬렉션과 extractHashCode](../Troubleshooting/jpa-set-collection.md)
-#### [📌 2. 로그인 API와 일반API 분리](../Troubleshooting/login-api-separation.md)
-#### [📌 3. JPA N+1 문제란](../Troubleshooting/jpa-n-plus-one.md)
-#### [📌 4. 재귀 쿼리를 통한 N+1 문제해결](../Troubleshooting/recursive-query-n-plus-one.md)
-#### [📌 5. Batch Size를 통한 N+1 문제 해결](../Troubleshooting/batch-size-n-plus-one.md)
-#### [📌 6. Fetch Join을 통한 N+1 문제 해결](../Troubleshooting/fetch-join-n-plus-one.md)
-#### [📌 7. JPA 변경감지와 N+1 문제](../Troubleshooting/dirty-checking-n-plus-one.md)
-#### [📌 8. JPA 직렬화와 N+1 문제](../Troubleshooting/serialization-n-plus-one.md)
-#### [📌 9. Spring Security와 N+1 문제](../Troubleshooting/spring-security-n-plus-one.md)
+#### [📌 1. JPA Set 컬렉션과 extractHashCode](results/Troubleshooting/jpa-set-collection.md)
+#### [📌 2. 로그인 API와 일반API 분리](results/Troubleshooting/login-api-separation.md)
+#### [📌 3. JPA N+1 문제란](results/Troubleshooting/jpa-n-plus-one.md)
+#### [📌 4. 재귀 쿼리를 통한 N+1 문제해결](results/Troubleshooting/recursive-query-n-plus-one.md)
+#### [📌 5. Batch Size를 통한 N+1 문제 해결](results/Troubleshooting/batch-size-n-plus-one.md)
+#### [📌 6. Fetch Join을 통한 N+1 문제 해결](results/Troubleshooting/fetch-join-n-plus-one.md)
+#### [📌 7. JPA 변경감지와 N+1 문제](results/Troubleshooting/dirty-checking-n-plus-one.md)
+#### [📌 8. JPA 직렬화와 N+1 문제](results/Troubleshooting/serialization-n-plus-one.md)
+#### [📌 9. Spring Security와 N+1 문제](results/Troubleshooting/spring-security-n-plus-one.md)
 
 ----
 
@@ -195,7 +194,7 @@
 <details>
 <summary>📌 1차: N+1과 과도한 DB 부하 발견 (TPS 1.2, 에러율 79%)</summary>
 
-- [📊 1차 테스트 결과](../phase1/phase1-result.md)
+[📊 1차 테스트 결과](results/phase1/phase1-result.md)
 
 **📌 분석한 문제점**
 - 인기 게시글 조회 시 DB 부하 심각
@@ -207,7 +206,7 @@
 <details>
 <summary>📌 2차: Redis 캐싱으로 DB 부하 분산 (TPS 4.8, 에러율 0%)</summary>
 
-- [📊 2차 테스트 결과](../phase2/phase2-result.md)
+[📊 2차 테스트 결과](results/phase2/phase2-result.md)
 
 **주요 개선 사항**
 - 인기 게시글 조회 쿼리를 Redis 캐시로 대체
@@ -223,7 +222,7 @@
 <details>
 <summary>📌 3차: N+1 해결과 계층형 쿼리 최적화 (TPS 6.8)</summary>
 
-- [📊 3차 테스트 결과](../phase3/phase3-result.md)
+[📊 3차 테스트 결과](results/phase3/phase3-result.md)
 
 **주요 개선 사항**
 - fetch join, 배치 사이즈 설정으로 N+1 문제 해결
@@ -239,7 +238,7 @@
 <details>
 <summary>📌 4차: 로깅과 엔티티 최적화 (TPS 12~15)</summary>
 
-- [📊 4차 테스트 결과](../phase4/phase4-result.md)
+[📊 4차 테스트 결과](results/phase4/phase4-result.md)
 
 **주요 개선 사항**
 - 로그 레벨 DEBUG → INFO 조정
@@ -254,7 +253,7 @@
 <details>
 <summary>📌 5차: 커넥션 풀과 지연로딩 최적화 (TPS 15~18)</summary>
 
-- [📊 5차 테스트 결과](../phase5/phase5-result.md)
+[📊 5차 테스트 결과](results/phase5/phase5-result.md)
 
 **주요 개선 사항**
 - HikariCP 커넥션 풀 최적화
@@ -269,7 +268,7 @@
 <details>
 <summary>📌 6차: 시스템 자원 효율화 (TPS 20~25)</summary>
 
-- [📊 6차 테스트 결과](../phase6/phase6-result.md)
+[📊 6차 테스트 결과](results/phase6/phase6-result.md)
 
 **주요 개선 사항**
 - 톰캣 쓰레드 수 조정 (200 → 100)
@@ -284,7 +283,7 @@
 <details>
 <summary>📌 7차: 로그인 전용 리소스 분리 (로그인 TPS 28.3)</summary>
 
-- [📊 7차 테스트 결과](../phase7/phase7-result.md)
+[📊 7차 테스트 결과](results/phase7/phase7-result.md)
 
 **주요 개선 사항**
 - 로그인 전용 커넥터 및 쓰레드 풀 도입
@@ -300,7 +299,7 @@
 <details>
 <summary>📌 8차: 응답 DTO와 쓰레드 풀 최적화 (TPS 27~28)</summary>
 
-- [📊 8차 테스트 결과](../phase8/phase8-result.md)
+[📊 8차 테스트 결과](results/phase8/phase8-result.md)
 
 **주요 개선 사항**
 - API 응답용/캐시용 DTO 분리
@@ -316,7 +315,7 @@
 <details>
 <summary>📌 9차: Set → List 전환으로 해시 연산 제거 (TPS 32.9)</summary>
 
-- [📊 9차 테스트 결과](../phase9/phase9-result.md)
+[📊 9차 테스트 결과](results/phase9/phase9-result.md)
 
 **주요 개선 사항**
 - Set → List 컬렉션 전환으로 해시 연산 오버헤드 제거
